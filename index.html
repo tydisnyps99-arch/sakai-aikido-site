@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -35,7 +35,7 @@
             <li><a href="#access"><span>ACCESS</span>アクセス</a></li>
             <li><a href="#instructor"><span>INSTRUCTOR</span>指導員紹介</a></li>
             <li><a href="#instagram"><span>INSTAGRAM</span>Instagram</a></li>
-            <li><a href="#contact" class="nav-contact"><span>CONTACT</span>体験申し込み</a></li>
+            <li><a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="nav-contact"><span>CONTACT</span>体験申し込み</a></li>
         </ul>
     </nav>
     <div class="nav-overlay" id="js-overlay"></div>
@@ -44,16 +44,20 @@
         <!-- トップスライダー -->
         <section id="hero" class="hero">
             <div class="slider" id="js-slider">
-                <a href="#contact" class="slide active">
+                <!-- ① 無料体験受付中 → Googleフォーム -->
+                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide active">
                     <img src="images/hero1.jpg" alt="子どもの稽古 無料体験受付中">
                 </a>
-                <a href="#contact" class="slide">
+                <!-- ② 入会受付中 → Googleフォーム -->
+                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide">
                     <img src="images/hero2.jpg" alt="大人の稽古 入会受付中">
                 </a>
+                <!-- ③ 指導員紹介 → 指導員セクションへ移動 -->
                 <a href="#instructor" class="slide">
                     <img src="images/hero3.jpg" alt="指導員紹介">
                 </a>
-                <a href="#instagram" class="slide">
+                <!-- ④ Instagram順次更新中 → Instagram -->
+                <a href="https://www.instagram.com/toshi_1057/" target="_blank" rel="noopener" class="slide">
                     <img src="images/hero4.jpg" alt="Instagram更新中">
                 </a>
             </div>
@@ -164,7 +168,6 @@
             <div class="container text-center">
                 <p>見学・無料体験は随時受け付けております。</p>
                 <p>お気軽にお問い合わせください。</p>
-                <!-- URLをGoogleフォームに変更 -->
                 <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" class="btn-primary" target="_blank" rel="noopener">無料体験を申し込む</a>
             </div>
         </section>
@@ -177,11 +180,21 @@
                     <span class="ja">指導員紹介</span>
                 </h2>
                 <div class="instructor-card">
-                    <img src="images/instructor.jpg" alt="前田 高司 先生" class="instructor-img">
+                    <!-- 画像を用意したら以下のimgタグに切り替えてください -->
+                    <!-- <img src="images/instructor.jpg" alt="前田 高司 先生" class="instructor-img"> -->
+                    <div class="instructor-img-placeholder">写真</div>
                     <div class="instructor-profile">
                         <h3>前田 高司 <small>Maeda Takashi</small></h3>
                         <p class="history">合気道〇段 / 指導歴〇年</p>
                         <p class="comment">「誰もが安心して稽古できる道場を目指しています。一緒に合気道の奥深さを楽しみましょう。」</p>
+                        
+                        <!-- ③ INTERVIEW ボタン設置 -->
+                        <div class="instructor-btn-wrapper">
+                            <a href="interview.html" class="btn-interview">
+                                <span class="en">INTERVIEW</span>
+                                <span class="ja">インタビューを読む</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,7 +208,6 @@
                     <span class="ja">Instagram</span>
                 </h2>
                 <p>稽古の様子を順次更新中！</p>
-                <!-- URLをInstagramに変更 -->
                 <a href="https://www.instagram.com/toshi_1057/" class="btn-secondary" target="_blank" rel="noopener">Instagramを見る</a>
             </div>
         </section>
