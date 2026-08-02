@@ -8,7 +8,7 @@
     --color-sub: #111111;  /* 黒 */
     --color-bg: #FFFFFF;   /* 白 */
     --color-light: #F7F7F7;
-    --color-accent: #B22222; /* 赤 */
+    --color-accent: #B22222; /* 赤（ボタン等で目立たせる色） */
     --color-gold: #C5A059;   /* 金色 */
     
     --font-ja: 'Noto Sans JP', sans-serif;
@@ -23,7 +23,6 @@
     box-sizing: border-box;
 }
 
-/* PC版の基礎文字サイズを全体的に拡大 (1.05rem) */
 body {
     font-family: var(--font-ja);
     color: var(--color-sub);
@@ -50,6 +49,10 @@ ul {
     list-style: none;
 }
 
+.u-inline-block {
+    display: inline-block;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -65,16 +68,15 @@ ul {
 }
 
 /* =========================================
-   タイポグラフィ・見出し（目立たせる調整）
+   タイポグラフィ・見出し
 ========================================= */
 .section {
-    padding: 100px 0;
+    padding: 90px 0;
 }
 
-/* 見出しデザインの強化 */
 .section-title {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 45px;
     position: relative;
 }
 
@@ -90,7 +92,7 @@ ul {
 .section-title .en {
     display: block;
     font-family: var(--font-en);
-    font-size: 2.2rem; /* サイズ拡大 */
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--color-main);
     letter-spacing: 0.12em;
@@ -98,7 +100,7 @@ ul {
 
 .section-title .ja {
     display: block;
-    font-size: 1.15rem; /* サイズ拡大 */
+    font-size: 1.15rem;
     font-weight: 700;
     margin-top: 4px;
     color: #333;
@@ -113,13 +115,13 @@ ul {
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     z-index: 100;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
 }
 
 .header-logo a {
@@ -138,7 +140,6 @@ ul {
     color: var(--color-main);
 }
 
-/* ハンバーガーボタン */
 .hamburger {
     width: 40px;
     height: 40px;
@@ -178,14 +179,13 @@ ul {
     background-color: #fff;
 }
 
-/* スライドメニュー */
 .nav-menu {
     position: fixed;
     top: 0;
     right: -300px;
     width: 300px;
     height: 100vh;
-    background-color: rgba(17, 17, 17, 0.95);
+    background-color: rgba(17, 17, 17, 0.96);
     z-index: 101;
     padding-top: 80px;
     transition: right 0.3s ease;
@@ -239,13 +239,14 @@ ul {
 }
 
 /* =========================================
-   トップスライダー (ズームなし・スムーズフェード)
+   トップスライダー (ズーム完全削除)
 ========================================= */
 .hero {
     margin-top: var(--header-height);
     position: relative;
     width: 100%;
     height: calc(100vh - var(--header-height));
+    min-height: 500px;
     padding: 20px;
     background-color: var(--color-bg);
 }
@@ -267,7 +268,7 @@ ul {
     height: 100%;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 1s ease, visibility 1s ease;
+    transition: opacity 1.2s ease, visibility 1.2s ease;
     display: block;
 }
 
@@ -280,9 +281,9 @@ ul {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
 }
 
-/* コントロールボタン */
 .slider-controls {
     position: absolute;
     top: 50%;
@@ -291,8 +292,9 @@ ul {
     display: flex;
     justify-content: space-between;
     transform: translateY(-50%);
-    padding: 0 40px;
+    padding: 0 30px;
     pointer-events: none;
+    z-index: 10;
 }
 
 .slider-btn {
@@ -314,11 +316,12 @@ ul {
 
 .slider-indicators {
     position: absolute;
-    bottom: 40px;
+    bottom: 35px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 10px;
+    z-index: 10;
 }
 
 .indicator {
@@ -362,7 +365,7 @@ ul {
 
 .venue-info {
     margin-top: 20px;
-    padding: 15px;
+    padding: 15px 20px;
     background-color: var(--color-light);
     border-left: 4px solid var(--color-gold);
     border-radius: 0 4px 4px 0;
@@ -394,7 +397,7 @@ ul {
 }
 
 /* =========================================
-   SCHEDULE (稽古日時・月謝 左揃え)
+   SCHEDULE (稽古日時・月謝)
 ========================================= */
 .schedule-info.left-align {
     text-align: left;
@@ -459,7 +462,8 @@ ul {
 .price-note {
     font-size: 0.9rem;
     color: #666;
-    margin-top: 8px;
+    margin-top: 10px;
+    line-height: 1.6;
 }
 
 .schedule-list {
@@ -501,8 +505,29 @@ ul {
 .status-event .event  { background-color: rgba(255, 193, 7, 0.2); color: #B8860B; }
 
 /* =========================================
-   ACCESS
+   ACCESS（箇条書きデザイン追加）
 ========================================= */
+.access-address {
+    margin-bottom: 25px;
+}
+
+.access-list-block {
+    margin-bottom: 20px;
+}
+
+.access-list-block ul {
+    margin-top: 8px;
+    padding-left: 1.5em;
+    list-style-type: disc;
+    line-height: 1.8;
+}
+
+.parking-note {
+    font-weight: bold;
+    color: var(--color-main);
+    margin-top: 20px;
+}
+
 .map-wrapper {
     margin-top: 30px;
 }
@@ -558,7 +583,6 @@ ul {
     margin-bottom: 25px;
 }
 
-/* INTERVIEW ボタン */
 .instructor-btn-wrapper {
     margin-top: 20px;
 }
@@ -601,31 +625,43 @@ ul {
 }
 
 /* =========================================
-   FAQ (よくあるご質問)
+   FAQ
 ========================================= */
 .faq-list {
     max-width: 750px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .faq-item {
     background: #fff;
     border-radius: 8px;
-    padding: 25px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+    overflow: hidden;
+    border: 1px solid #EAEAEA;
 }
 
 .faq-q {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 25px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 1.1rem;
     font-weight: bold;
-    font-size: 1.15rem;
     color: var(--color-sub);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 12px;
-    margin-bottom: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.faq-q:hover {
+    background-color: rgba(11, 66, 42, 0.03);
 }
 
 .q-icon {
@@ -643,7 +679,31 @@ ul {
     flex-shrink: 0;
 }
 
+.q-text {
+    flex: 1;
+}
+
+.faq-arrow {
+    font-size: 0.8rem;
+    color: #888;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+.faq-item.is-open .faq-arrow {
+    transform: rotate(180deg);
+    color: var(--color-main);
+}
+
 .faq-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+    background-color: #FAFAFA;
+}
+
+.faq-a-inner {
+    padding: 0 25px 20px 25px;
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -664,10 +724,11 @@ ul {
     justify-content: center;
     border-radius: 50%;
     flex-shrink: 0;
+    margin-top: 2px;
 }
 
 /* =========================================
-   CONTACT (お問い合わせエリア強化)
+   CONTACT（ボタン色を赤にして背景と同化させない）
 ========================================= */
 .contact-section {
     background: linear-gradient(135deg, #0B422A 0%, #052417 100%);
@@ -701,18 +762,19 @@ ul {
 }
 
 .contact-desc {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #E0EAE5;
     line-height: 1.8;
     margin-bottom: 40px;
 }
 
+/* 深緑の背景に対してパッと目を引く赤色（アクセントカラー）に設定 */
 .btn-cta {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: var(--color-gold);
+    background: var(--color-accent);
     color: #fff;
     padding: 20px 60px;
     border-radius: 50px;
@@ -721,7 +783,7 @@ ul {
 }
 
 .btn-cta:hover {
-    background: #B38E46;
+    background: #8e1b1b;
     transform: translateY(-2px);
 }
 
@@ -740,6 +802,154 @@ ul {
     font-size: 0.85rem;
     color: #B0C4DE;
     margin-top: 20px;
+}
+
+/* =========================================
+   ③ INTERVIEW ページ用スタイル
+========================================= */
+.article-page {
+    padding-top: calc(var(--header-height) + 40px);
+    padding-bottom: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #FAFAFA;
+}
+
+.interview-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 60px 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.interview-header {
+    border-bottom: 2px solid var(--color-main);
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.interview-subtitle {
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-main);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+}
+
+.interview-title {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.interview-lead {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.85;
+}
+
+.interview-body {
+    font-size: 1.05rem;
+    line-height: 1.9;
+}
+
+.interview-block {
+    margin-bottom: 40px;
+}
+
+.interview-block .question {
+    font-size: 1.25rem;
+    color: var(--color-main);
+    background-color: rgba(11, 66, 42, 0.05);
+    padding: 16px 20px;
+    border-left: 4px solid var(--color-main);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.interview-block .answer p {
+    margin-bottom: 15px;
+}
+
+.interview-block .answer .speaker {
+    font-weight: bold;
+    color: var(--color-sub);
+    margin-bottom: 5px;
+}
+
+.highlight-quote {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-main);
+    margin: 35px 0;
+    padding: 22px;
+    background-color: #F4F7F5;
+    border-top: 1px solid var(--color-main);
+    border-bottom: 1px solid var(--color-main);
+}
+
+.interview-image {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.interview-image img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.editor-note {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 6px;
+    margin-top: 50px;
+    border: 1px solid #EAEAEA;
+}
+
+.editor-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-sub);
+    margin-bottom: 10px;
+    display: inline-block;
+    border-bottom: 2px solid var(--color-gold);
+}
+
+.interview-footer-action {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #EEE;
+}
+
+.back-to-home {
+    margin-top: 20px;
+}
+
+/* =========================================
+   共通ボタン
+========================================= */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-main);
+    color: #fff;
+    padding: 18px 45px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(11, 66, 42, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #083321;
 }
 
 .btn-secondary {
@@ -807,19 +1017,51 @@ ul {
 }
 
 /* =========================================
-   レスポンシブ (スマホ表示)
+   レスポンシブデザイン
 ========================================= */
+@media screen and (max-width: 1024px) {
+    .hero {
+        height: auto;
+        min-height: initial;
+        padding: 15px;
+    }
+
+    .slider {
+        aspect-ratio: 16 / 9;
+        height: auto;
+    }
+
+    .section {
+        padding: 70px 0;
+    }
+
+    .interview-container {
+        padding: 40px 30px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     body {
-        font-size: 1rem; /* スマホでは標準サイズに戻す */
+        font-size: 1rem;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        margin-bottom: 35px;
     }
 
     .section-title .en {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
+    }
+
+    .section-title .ja {
+        font-size: 1rem;
     }
 
     .hero {
-        height: auto;
         padding: 10px;
     }
     
@@ -829,34 +1071,36 @@ ul {
     }
 
     .slider-controls {
-        padding: 0 15px;
+        padding: 0 10px;
     }
 
     .slider-btn {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
         font-size: 1rem;
     }
 
     .slider-indicators {
-        bottom: 15px;
+        bottom: 12px;
     }
 
     .indicator {
-        width: 20px;
+        width: 22px;
         height: 3px;
     }
 
-    .section {
-        padding: 60px 0;
+    .content-box,
+    .schedule-info.left-align,
+    .schedule-list {
+        padding: 25px 20px;
     }
 
     .contact-title {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
     }
 
     .btn-cta {
-        padding: 16px 30px;
+        padding: 18px 25px;
         width: 100%;
     }
 
@@ -871,9 +1115,9 @@ ul {
 
     .instructor-img {
         width: 100%;
-        max-width: 250px;
+        max-width: 240px;
         height: auto;
-        aspect-ratio: 4/5;
+        aspect-ratio: 4 / 5;
     }
 
     .instructor-profile {
@@ -882,6 +1126,39 @@ ul {
 
     .btn-interview {
         width: 100%;
+    }
+
+    .faq-q {
+        padding: 16px 18px;
+        font-size: 1rem;
+    }
+
+    .faq-a-inner {
+        padding: 0 18px 18px 18px;
+    }
+
+    .article-page {
+        padding-top: calc(var(--header-height) + 20px);
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .interview-container {
+        padding: 25px 18px;
+    }
+
+    .interview-title {
+        font-size: 1.35rem;
+    }
+
+    .interview-block .question {
+        font-size: 1.05rem;
+        padding: 12px 15px;
+    }
+
+    .highlight-quote {
+        font-size: 1.05rem;
+        padding: 16px;
     }
 
     .footer-inner {
