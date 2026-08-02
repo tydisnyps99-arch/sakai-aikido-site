@@ -225,7 +225,7 @@ ul {
 }
 
 /* =========================================
-   トップスライダー (PC表示)
+   トップスライダー (拡大アニメーション削除済み)
 ========================================= */
 .hero {
     margin-top: var(--header-height);
@@ -262,16 +262,11 @@ ul {
     visibility: visible;
 }
 
+/* 画像は拡大させず静止して配置 */
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1);
-    transition: transform 6s linear;
-}
-
-.slide.active img {
-    transform: scale(1.05);
 }
 
 /* コントロールボタン */
@@ -411,22 +406,14 @@ ul {
     padding: 40px;
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    align-items: flex-start;
 }
 
-.instructor-img,
-.instructor-img-placeholder {
-    width: 200px;
-    height: 250px;
+.instructor-img {
+    width: 220px;
+    height: 280px;
     object-fit: cover;
     border-radius: 6px;
-}
-
-.instructor-img-placeholder {
-    background-color: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
 }
 
 .instructor-profile {
@@ -456,7 +443,7 @@ ul {
     margin-bottom: 25px;
 }
 
-/* ③ インタビューボタン（シンプル×高級感） */
+/* INTERVIEW ボタン */
 .instructor-btn-wrapper {
     margin-top: 20px;
 }
@@ -499,7 +486,135 @@ ul {
 }
 
 /* =========================================
-   ボタン
+   INTERVIEW ページ用スタイル
+========================================= */
+.article-page {
+    margin-top: var(--header-height);
+    padding: 60px 20px 100px;
+    background-color: #FAFAFA;
+}
+
+.interview-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #FFFFFF;
+    padding: 60px 50px;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.interview-header {
+    border-bottom: 2px solid var(--color-main);
+    padding-bottom: 30px;
+    margin-bottom: 40px;
+}
+
+.interview-subtitle {
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-main);
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+}
+
+.interview-title {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.interview-lead {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+}
+
+.interview-body {
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.interview-block {
+    margin-bottom: 40px;
+}
+
+.interview-block .question {
+    font-size: 1.25rem;
+    color: var(--color-main);
+    background-color: rgba(11, 66, 42, 0.05);
+    padding: 15px 20px;
+    border-left: 4px solid var(--color-main);
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.interview-block .answer p {
+    margin-bottom: 15px;
+}
+
+.interview-block .answer .speaker {
+    font-weight: bold;
+    color: var(--color-sub);
+    margin-bottom: 5px;
+}
+
+.highlight-quote {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--color-main);
+    margin: 30px 0;
+    padding: 20px;
+    background-color: #F4F7F5;
+    border-top: 1px solid var(--color-main);
+    border-bottom: 1px solid var(--color-main);
+}
+
+.interview-image {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.interview-image img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.editor-note {
+    background-color: var(--color-light);
+    padding: 30px;
+    border-radius: 6px;
+    margin-top: 50px;
+    border: 1px solid #EAEAEA;
+}
+
+.editor-title {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color-sub);
+    margin-bottom: 10px;
+    display: inline-block;
+    border-bottom: 2px solid var(--color-gold);
+}
+
+.interview-footer-action {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #EEE;
+}
+
+.back-to-home {
+    margin-top: 20px;
+}
+
+/* =========================================
+   共通ボタン
 ========================================= */
 .btn-primary {
     display: inline-block;
@@ -509,7 +624,6 @@ ul {
     font-size: 1.2rem;
     font-weight: bold;
     border-radius: 50px;
-    margin-top: 30px;
     box-shadow: 0 4px 15px rgba(11, 66, 42, 0.3);
 }
 
@@ -523,7 +637,6 @@ ul {
     color: var(--color-sub);
     padding: 15px 40px;
     font-weight: bold;
-    margin-top: 20px;
 }
 
 .btn-secondary:hover {
@@ -583,17 +696,15 @@ ul {
 }
 
 /* =========================================
-   ① レスポンシブ (スマホ向けスライダー改善)
+   レスポンシブ (スマホ対応)
 ========================================= */
 @media screen and (max-width: 768px) {
-    /* スライダーを見切れさせない設定 */
     .hero {
         height: auto;
-        padding: 10px; /* 余白を少し詰める */
+        padding: 10px;
     }
     
     .slider {
-        /* 横縦比（アスペクト比）を一般的な画像サイズ 16:9 に固定 */
         aspect-ratio: 16 / 9;
         height: auto;
     }
@@ -617,24 +728,33 @@ ul {
         height: 3px;
     }
 
-    /* その他スマホ向けレイアウト調整 */
     .section {
         padding: 60px 0;
     }
-    
-    .footer-inner {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+
+    .interview-container {
+        padding: 30px 20px;
     }
-    
-    .footer-links {
-        justify-content: center;
+
+    .interview-title {
+        font-size: 1.4rem;
     }
-    
+
+    .interview-block .question {
+        font-size: 1.1rem;
+        padding: 12px 15px;
+    }
+
     .instructor-card {
         justify-content: center;
         padding: 25px 20px;
+    }
+
+    .instructor-img {
+        width: 100%;
+        max-width: 250px;
+        height: auto;
+        aspect-ratio: 4/5;
     }
 
     .instructor-profile {
@@ -643,5 +763,15 @@ ul {
 
     .btn-interview {
         width: 100%;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
     }
 }
