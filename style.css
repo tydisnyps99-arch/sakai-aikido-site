@@ -1,0 +1,562 @@
+@charset "UTF-8";
+
+/* =========================================
+   変数定義・リセット
+========================================= */
+:root {
+    --color-main: #0B422A; /* 深緑 */
+    --color-sub: #111111;  /* 黒 */
+    --color-bg: #FFFFFF;   /* 白 */
+    --color-light: #F7F7F7;
+    --color-accent: #B22222; /* 赤（旧旗モチーフ） */
+    
+    --font-ja: 'Noto Sans JP', sans-serif;
+    --font-en: 'Montserrat', sans-serif;
+    
+    --header-height: 70px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-ja);
+    color: var(--color-sub);
+    background-color: var(--color-bg);
+    line-height: 1.8;
+    letter-spacing: 0.05em;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.bg-light {
+    background-color: var(--color-light);
+}
+
+/* =========================================
+   タイポグラフィ・見出し
+========================================= */
+.section {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title .en {
+    display: block;
+    font-family: var(--font-en);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-main);
+    letter-spacing: 0.1em;
+}
+
+.section-title .ja {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+/* =========================================
+   ヘッダー
+========================================= */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header-logo a {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-logo .logo-ja {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.header-logo .logo-en {
+    font-family: var(--font-en);
+    font-size: 0.7rem;
+    color: var(--color-main);
+}
+
+/* ハンバーガーボタン */
+.hamburger {
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 102;
+}
+
+.hamburger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-sub);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 12px; }
+.hamburger span:nth-child(2) { top: 19px; }
+.hamburger span:nth-child(3) { top: 26px; }
+
+/* ハンバーガー 開いた時 */
+.hamburger.is-active span:nth-child(1) {
+    top: 19px;
+    transform: translateX(-50%) rotate(45deg);
+    background-color: #fff;
+}
+.hamburger.is-active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.is-active span:nth-child(3) {
+    top: 19px;
+    transform: translateX(-50%) rotate(-45deg);
+    background-color: #fff;
+}
+
+/* スライドメニュー */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(17, 17, 17, 0.95);
+    z-index: 101;
+    padding-top: 80px;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+}
+
+.nav-menu.is-active {
+    right: 0;
+}
+
+.nav-menu ul li a {
+    display: block;
+    padding: 15px 30px;
+    color: #fff;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.nav-menu ul li a span {
+    display: block;
+    font-family: var(--font-en);
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-bottom: 3px;
+}
+
+.nav-menu ul li a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.nav-contact {
+    color: var(--color-main) !important;
+    font-weight: bold;
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.nav-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* =========================================
+   トップスライダー (Ken Burns Effect)
+========================================= */
+.hero {
+    margin-top: var(--header-height);
+    position: relative;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    /* 背景色を白にして、周囲に20pxの余白を入れる */
+    padding: 20px;
+    background-color: var(--color-bg);
+}
+
+.slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    /* 余白を入れたので、画像の角を少し丸くするとスタイリッシュになります */
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+    display: block;
+}
+
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1);
+    transition: transform 6s linear; /* Ken Burns Effect用 */
+}
+
+.slide.active img {
+    transform: scale(1.05); /* ゆっくりズーム */
+}
+
+/* スライダーコントロール */
+.slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    /* 左右の余白を考慮してボタンを少し内側に配置 */
+    padding: 0 40px;
+    pointer-events: none;
+}
+
+.slider-btn {
+    pointer-events: auto;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.slider-btn:hover {
+    background-color: var(--color-main);
+}
+
+.slider-indicators {
+    position: absolute;
+    /* インジケーターを少し上に上げる */
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator {
+    width: 30px;
+    height: 4px;
+    background-color: rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.indicator.active {
+    background-color: #fff;
+}
+
+/* =========================================
+   コンテンツ各セクション
+========================================= */
+/* FEATURES */
+.feature-list {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.feature-list li {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.feature-list li::before {
+    content: "■";
+    color: var(--color-main);
+    position: absolute;
+    left: 0;
+    font-size: 0.8rem;
+}
+
+/* SCHEDULE */
+.schedule-info {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+.schedule-info .fee {
+    margin-top: 15px;
+    font-weight: bold;
+    color: var(--color-main);
+}
+
+.schedule-list {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.schedule-list h3 {
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-main);
+    padding-bottom: 10px;
+}
+
+.schedule-list li {
+    display: flex;
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+    align-items: center;
+}
+
+.schedule-list .date {
+    width: 100px;
+    font-weight: bold;
+}
+
+.schedule-list .event {
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* 色分け設定 */
+.status-normal .event { background-color: rgba(11, 66, 42, 0.1); color: var(--color-main); } /* 緑 */
+.status-closed .event { background-color: rgba(178, 34, 34, 0.1); color: var(--color-accent); } /* 赤 */
+.status-event .event  { background-color: rgba(255, 193, 7, 0.2); color: #B8860B; } /* 黄 */
+
+/* ACCESS */
+.map-wrapper {
+    margin-top: 30px;
+}
+
+/* INSTRUCTOR */
+.instructor-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.instructor-img-placeholder {
+    width: 200px;
+    height: 250px;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+}
+
+.instructor-profile {
+    flex: 1;
+    min-width: 250px;
+}
+
+.instructor-profile h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+.instructor-profile h3 small {
+    font-family: var(--font-en);
+    font-size: 0.9rem;
+    color: #666;
+    margin-left: 10px;
+}
+.instructor-profile .history {
+    color: var(--color-main);
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.instructor-profile .comment {
+    background: var(--color-light);
+    padding: 20px;
+    border-left: 4px solid var(--color-main);
+}
+
+/* =========================================
+   ボタン
+========================================= */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-main);
+    color: #fff;
+    padding: 20px 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(11, 66, 42, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: #083321;
+}
+
+.btn-secondary {
+    display: inline-block;
+    border: 2px solid var(--color-sub);
+    color: var(--color-sub);
+    padding: 15px 40px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-sub);
+    color: #fff;
+}
+
+/* =========================================
+   フッター
+========================================= */
+.footer {
+    background-color: var(--color-sub);
+    color: #fff;
+    padding: 60px 0 20px;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #888;
+    font-family: var(--font-en);
+}
+
+/* =========================================
+   アニメーション（スクロール連動）
+========================================= */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.fade-in-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   レスポンシブ (スマホ優先の調整)
+========================================= */
+@media screen and (max-width: 768px) {
+    .section {
+        padding: 60px 0;
+    }
+    
+    .footer-inner {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+    
+    .instructor-card {
+        justify-content: center;
+    }
+}
