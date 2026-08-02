@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,11 +31,11 @@
             <li><a href="#"><span>HOME</span>ホーム</a></li>
             <li><a href="#about"><span>ABOUT</span>教室紹介</a></li>
             <li><a href="#features"><span>FEATURES</span>特徴</a></li>
-            <li><a href="#schedule"><span>SCHEDULE</span>稽古日時</a></li>
+            <li><a href="#schedule"><span>SCHEDULE</span>稽古日時・料金</a></li>
             <li><a href="#access"><span>ACCESS</span>アクセス</a></li>
             <li><a href="#instructor"><span>INSTRUCTOR</span>指導員紹介</a></li>
-            <li><a href="#instagram"><span>INSTAGRAM</span>Instagram</a></li>
-            <li><a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="nav-contact"><span>CONTACT</span>体験申し込み</a></li>
+            <li><a href="#faq"><span>FAQ</span>よくあるご質問</a></li>
+            <li><a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="nav-contact"><span>CONTACT</span>無料体験申し込み</a></li>
         </ul>
     </nav>
     <div class="nav-overlay" id="js-overlay"></div>
@@ -52,13 +52,13 @@
                 <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide">
                     <img src="images/hero2.jpg" alt="大人の稽古 入会受付中">
                 </a>
-                <!-- ③ 指導員紹介 → 指導員セクションへ移動 -->
-                <a href="#instructor" class="slide">
-                    <img src="images/hero3.jpg" alt="指導員紹介">
-                </a>
-                <!-- ④ Instagram順次更新中 → Instagram -->
+                <!-- ③ Instagram順次更新中 → Instagram（順序入替） -->
                 <a href="https://www.instagram.com/toshi_1057/" target="_blank" rel="noopener" class="slide">
                     <img src="images/hero4.jpg" alt="Instagram更新中">
+                </a>
+                <!-- ④ 指導員紹介 → 指導員セクションへ（順序入替） -->
+                <a href="#instructor" class="slide">
+                    <img src="images/hero3.jpg" alt="指導員紹介">
                 </a>
             </div>
             
@@ -75,16 +75,27 @@
             </div>
         </section>
 
-        <!-- 教室紹介・合気道とは -->
+        <!-- 教室紹介・船尾会館・合気道とは（充実化） -->
         <section id="about" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">ABOUT</span>
                     <span class="ja">教室紹介</span>
                 </h2>
+                
                 <div class="content-box">
-                    <h3>合気道とは</h3>
-                    <p>合気道は、いたずらに力で争うことをせず、相手と調和し、心身を鍛錬する武道です。<br>試合を行わないため、老若男女問わず、それぞれのペースで稽古を続けることができます。</p>
+                    <h3>堺合気道教室について</h3>
+                    <p>堺合気道教室は、大阪府堺市西区の「船尾会館」を中心に活動を行っている合気道道場です。小学生から大人・シニア世代まで、幅広い年代の会員が和気あいあいと稽古に励んでいます。</p>
+                    <p class="venue-info">
+                        <strong>【主な稽古場所】</strong><br>
+                        <strong>船尾会館</strong>（大阪府堺市西区浜寺船尾町西3丁305）
+                    </p>
+                </div>
+
+                <div class="content-box">
+                    <h3>「勝ち負けのない武道」合気道とは</h3>
+                    <p>合気道は、相手と力で争うのではなく、相手の力を利用して制する日本伝統の現代武道です。試合（競技）を行わないため、他人と優劣を競い合うプレッシャーがなく、自分自身のペースで体幹や礼儀作法を身につけることができます。</p>
+                    <p>無理な筋力や格闘のセンスに頼らないため、小中学生はもちろん、女性や70代の方までどなたでも安全に始められます。日々の運動不足解消やストレス発散、しなやかな身のこなしと心のゆとりを育む習い事として最適です。</p>
                 </div>
             </div>
         </section>
@@ -97,30 +108,48 @@
                     <span class="ja">教室の特徴</span>
                 </h2>
                 <ul class="feature-list">
-                    <li>初心者歓迎・無料体験あり</li>
-                    <li>子どもから大人まで一緒に学べる環境</li>
-                    <li>礼儀作法を重んじ、心を育む</li>
-                    <li>一人ひとりに寄り添う丁寧な指導</li>
+                    <li>初心者歓迎・随時無料体験受付中</li>
+                    <li>子どもから大人まで、世代を超えて学べる環境</li>
+                    <li>礼儀作法を重んじ、強い心と感謝の姿勢を育む</li>
+                    <li>一人ひとりの体力・目標に寄り添う丁寧な指導</li>
                 </ul>
             </div>
         </section>
 
-        <!-- 稽古日時・今後の予定 -->
+        <!-- 稽古日時・月謝（左揃え・家族料金追加） -->
         <section id="schedule" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
-                    <span class="en">SCHEDULE</span>
-                    <span class="ja">稽古日時</span>
+                    <span class="en">SCHEDULE & PRICE</span>
+                    <span class="ja">稽古日時・会費</span>
                 </h2>
-                <div class="schedule-info">
-                    <p><strong>毎週 水曜日・土曜日</strong></p>
-                    <p>18:00〜19:30 子どもの部</p>
-                    <p>19:30〜21:00 一般の部</p>
-                    <p class="fee">月謝：6,000円</p>
+                
+                <div class="schedule-info left-align">
+                    <h3>稽古日時</h3>
+                    <p class="schedule-days"><strong>毎週 水曜日・土曜日</strong></p>
+                    <ul class="time-list">
+                        <li><strong>18:00〜19:30</strong> 子どもの部（小・中学生）</li>
+                        <li><strong>19:30〜21:00</strong> 一般の部（高校生以上・大人）</li>
+                    </ul>
+
+                    <div class="price-box">
+                        <h3>月謝・会費（税込）</h3>
+                        <ul class="price-list">
+                            <li>
+                                <span class="price-label">月謝（通常）</span>
+                                <span class="price-value">6,000円 / 月</span>
+                            </li>
+                            <li>
+                                <span class="price-label">家族割引料金（2人目以降）</span>
+                                <span class="price-value">4,000円 / 月</span>
+                            </li>
+                        </ul>
+                        <p class="price-note">※ご家族（親子・兄弟姉妹など）でご入会の場合、2人目以降の月謝が割引となります。</p>
+                    </div>
                 </div>
 
                 <div class="schedule-list">
-                    <h3>今後の予定</h3>
+                    <h3>今後の稽古予定</h3>
                     <ul>
                         <li class="status-normal"><span class="date">8/6（水）</span><span class="event">通常稽古</span></li>
                         <li class="status-normal"><span class="date">8/9（土）</span><span class="event">通常稽古</span></li>
@@ -131,7 +160,7 @@
             </div>
         </section>
 
-        <!-- アクセス -->
+        <!-- アクセス（徒歩に「約」を追加） -->
         <section id="access" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -146,15 +175,15 @@
                     <br>
                     <p>
                         <strong>【最寄り駅】</strong><br>
-                        船尾駅より徒歩10分 / 諏訪ノ森駅より徒歩14分 / 津久野駅より徒歩23分
+                        船尾駅より徒歩約10分 / 諏訪ノ森駅より徒歩約14分 / 津久野駅より徒歩約23分
                     </p>
                     <br>
                     <p>
                         <strong>【周辺学校】</strong><br>
-                        浜寺中学校より徒歩5分 / 浜寺東小学校より徒歩9分 / 浜寺小学校より徒歩10分
+                        浜寺中学校より徒歩約5分 / 浜寺東小学校より徒歩約9分 / 浜寺小学校より徒歩約10分
                     </p>
                     <br>
-                    <p>※車での来館も可能です。</p>
+                    <p>※お車でお越しの場合は近隣の駐車場をご利用いただくか、指導員までお問い合わせください。</p>
                 </div>
                 <!-- Google Map埋め込み -->
                 <div class="map-wrapper">
@@ -163,16 +192,7 @@
             </div>
         </section>
 
-        <!-- 体験申し込み（メイン導線） -->
-        <section id="contact" class="section contact-section fade-in-up">
-            <div class="container text-center">
-                <p>見学・無料体験は随時受け付けております。</p>
-                <p>お気軽にお問い合わせください。</p>
-                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" class="btn-primary" target="_blank" rel="noopener">無料体験を申し込む</a>
-            </div>
-        </section>
-
-<!-- 指導員紹介（補足） -->
+        <!-- 指導員紹介 -->
         <section id="instructor" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -180,14 +200,12 @@
                     <span class="ja">指導員紹介</span>
                 </h2>
                 <div class="instructor-card">
-                    <!-- 写真タグを正式配置いたしました -->
                     <img src="images/instructor.jpg" alt="前田 高司 先生" class="instructor-img">
                     <div class="instructor-profile">
                         <h3>前田 高司 <small>Maeda Takashi</small></h3>
                         <p class="history">合気道〇段 / 指導歴〇年</p>
                         <p class="comment">「誰もが安心して稽古できる道場を目指しています。一緒に合気道の奥深さを楽しみましょう。」</p>
                         
-                        <!-- INTERVIEW ボタン -->
                         <div class="instructor-btn-wrapper">
                             <a href="interview.html" class="btn-interview">
                                 <span class="en">INTERVIEW</span>
@@ -199,15 +217,64 @@
             </div>
         </section>
 
-        <!-- Instagram（補足） -->
-        <section id="instagram" class="section fade-in-up">
+        <!-- FAQ（よくあるご質問）新設 -->
+        <section id="faq" class="section fade-in-up">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="en">FAQ</span>
+                    <span class="ja">よくあるご質問</span>
+                </h2>
+                <dl class="faq-list">
+                    <div class="faq-item">
+                        <dt class="faq-q"><span class="q-icon">Q</span>運動経験がなく、体が非常に硬いのですが大丈夫ですか？</dt>
+                        <dd class="faq-a"><span class="a-icon">A</span>全く問題ありません。合気道は無理な筋力や柔軟性を必要とせず、相手の力を利用する武道です。一人ひとりのペースに合わせて丁寧に指導いたします。</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt class="faq-q"><span class="q-icon">Q</span>体験稽古の際の服装や持ち物は何が必要ですか？</dt>
+                        <dd class="faq-a"><span class="a-icon">A</span>動きやすい服装（ジャージやTシャツ・長ズボン等）とお飲み物、タオルをお持ちください。道着をお持ちでない方も気軽に体験いただけます。</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt class="faq-q"><span class="q-icon">Q</span>親子や兄弟で一緒に通うことはできますか？</dt>
+                        <dd class="faq-a"><span class="a-icon">A</span>はい、大歓迎です。当道場では多くのご家族が一緒に稽古に励んでいます。お得な「家族割引料金」もご用意しております。</dd>
+                    </div>
+                    <div class="faq-item">
+                        <dt class="faq-q"><span class="q-icon">Q</span>見学や無料体験は事前に予約が必要ですか？</dt>
+                        <dd class="faq-a"><span class="a-icon">A</span>スムーズなご案内のため、Googleフォームより事前にご予約をお願いしております。お気軽にお申し込みください。</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <!-- Instagram -->
+        <section id="instagram" class="section bg-light fade-in-up">
             <div class="container text-center">
                 <h2 class="section-title">
                     <span class="en">INSTAGRAM</span>
                     <span class="ja">Instagram</span>
                 </h2>
-                <p>稽古の様子を順次更新中！</p>
+                <p>稽古の様子や最新情報を順次更新中！</p>
                 <a href="https://www.instagram.com/toshi_1057/" class="btn-secondary" target="_blank" rel="noopener">Instagramを見る</a>
+            </div>
+        </section>
+
+        <!-- 体験申し込み（強化版CTA） -->
+        <section id="contact" class="section contact-section fade-in-up">
+            <div class="container">
+                <div class="contact-box text-center">
+                    <span class="contact-badge">FREE TRIAL</span>
+                    <h2 class="contact-title">まずはお気軽に無料体験へお越しください！</h2>
+                    <p class="contact-desc">
+                        「武道の雰囲気を味わってみたい」「子どもの習い事を探している」「運動不足を解消したい」<br>
+                        堺合気道教室では、随時見学・無料体験を受け付けております。初心者の方も大歓迎です！
+                    </p>
+                    <div class="contact-btn-wrapper">
+                        <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" class="btn-primary btn-cta" target="_blank" rel="noopener">
+                            <span class="main-text">無料体験・見学を申し込む</span>
+                            <span class="sub-text">（Googleフォームが開きます）</span>
+                        </a>
+                    </div>
+                    <p class="contact-note">※お申し込み確認後、指導員より日程調整等のご連絡を差し上げます。</p>
+                </div>
             </div>
         </section>
     </main>
@@ -221,6 +288,7 @@
                     <li><a href="#about">教室紹介</a></li>
                     <li><a href="#schedule">稽古日時</a></li>
                     <li><a href="#access">アクセス</a></li>
+                    <li><a href="#faq">FAQ</a></li>
                     <li><a href="https://www.instagram.com/toshi_1057/" target="_blank" rel="noopener">Instagram</a></li>
                 </ul>
             </div>

@@ -8,8 +8,8 @@
     --color-sub: #111111;  /* 黒 */
     --color-bg: #FFFFFF;   /* 白 */
     --color-light: #F7F7F7;
-    --color-accent: #B22222; /* 赤（旧旗モチーフ） */
-    --color-gold: #C5A059;   /* 高級感のある落ち着いたゴールド */
+    --color-accent: #B22222; /* 赤 */
+    --color-gold: #C5A059;   /* 金色 */
     
     --font-ja: 'Noto Sans JP', sans-serif;
     --font-en: 'Montserrat', sans-serif;
@@ -23,11 +23,13 @@
     box-sizing: border-box;
 }
 
+/* PC版の基礎文字サイズを全体的に拡大 (1.05rem) */
 body {
     font-family: var(--font-ja);
     color: var(--color-sub);
     background-color: var(--color-bg);
-    line-height: 1.8;
+    font-size: 1.05rem;
+    line-height: 1.85;
     letter-spacing: 0.05em;
     -webkit-font-smoothing: antialiased;
 }
@@ -63,31 +65,43 @@ ul {
 }
 
 /* =========================================
-   タイポグラフィ・見出し
+   タイポグラフィ・見出し（目立たせる調整）
 ========================================= */
 .section {
     padding: 100px 0;
 }
 
+/* 見出しデザインの強化 */
 .section-title {
     text-align: center;
     margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-gold);
+    margin: 15px auto 0;
 }
 
 .section-title .en {
     display: block;
     font-family: var(--font-en);
-    font-size: 1.5rem;
-    font-weight: 300;
+    font-size: 2.2rem; /* サイズ拡大 */
+    font-weight: 700;
     color: var(--color-main);
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
 }
 
 .section-title .ja {
     display: block;
-    font-size: 1rem;
-    font-weight: 500;
-    margin-top: 5px;
+    font-size: 1.15rem; /* サイズ拡大 */
+    font-weight: 700;
+    margin-top: 4px;
+    color: #333;
 }
 
 /* =========================================
@@ -114,13 +128,13 @@ ul {
 }
 
 .header-logo .logo-ja {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
 }
 
 .header-logo .logo-en {
     font-family: var(--font-en);
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: var(--color-main);
 }
 
@@ -202,7 +216,7 @@ ul {
 }
 
 .nav-contact {
-    color: var(--color-main) !important;
+    color: var(--color-gold) !important;
     font-weight: bold;
 }
 
@@ -225,7 +239,7 @@ ul {
 }
 
 /* =========================================
-   トップスライダー (拡大アニメーション削除済み)
+   トップスライダー (ズームなし・スムーズフェード)
 ========================================= */
 .hero {
     margin-top: var(--header-height);
@@ -262,7 +276,6 @@ ul {
     visibility: visible;
 }
 
-/* 画像は拡大させず静止して配置 */
 .slide img {
     width: 100%;
     height: 100%;
@@ -284,11 +297,11 @@ ul {
 
 .slider-btn {
     pointer-events: auto;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.4);
     color: #fff;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
     font-size: 1.2rem;
     cursor: pointer;
@@ -321,19 +334,55 @@ ul {
 }
 
 /* =========================================
-   コンテンツ各セクション
+   ABOUT (教室紹介)
 ========================================= */
-/* FEATURES */
+.content-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.content-box h3 {
+    font-size: 1.35rem;
+    color: var(--color-main);
+    border-bottom: 2px solid var(--color-main);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.content-box p {
+    margin-bottom: 12px;
+}
+
+.content-box p:last-child {
+    margin-bottom: 0;
+}
+
+.venue-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: var(--color-light);
+    border-left: 4px solid var(--color-gold);
+    border-radius: 0 4px 4px 0;
+}
+
+/* =========================================
+   FEATURES (特徴)
+========================================= */
 .feature-list {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
 }
 
 .feature-list li {
-    padding: 15px 0;
+    padding: 18px 0;
     border-bottom: 1px solid #ddd;
     position: relative;
-    padding-left: 1.5rem;
+    padding-left: 1.8rem;
+    font-size: 1.1rem;
+    font-weight: 500;
 }
 
 .feature-list li::before {
@@ -341,26 +390,84 @@ ul {
     color: var(--color-main);
     position: absolute;
     left: 0;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
 }
 
-/* SCHEDULE */
-.schedule-info {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 1.1rem;
+/* =========================================
+   SCHEDULE (稽古日時・月謝 左揃え)
+========================================= */
+.schedule-info.left-align {
+    text-align: left;
+    max-width: 650px;
+    margin: 0 auto 40px;
+    background: #fff;
+    padding: 35px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
-.schedule-info .fee {
-    margin-top: 15px;
-    font-weight: bold;
+
+.schedule-info h3 {
+    font-size: 1.3rem;
     color: var(--color-main);
+    border-bottom: 2px solid var(--color-main);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+}
+
+.schedule-days {
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.time-list {
+    margin-bottom: 25px;
+    padding-left: 5px;
+}
+
+.time-list li {
+    margin-bottom: 6px;
+}
+
+.price-box {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}
+
+.price-list {
+    margin: 15px 0;
+}
+
+.price-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.price-label {
+    font-weight: bold;
+}
+
+.price-value {
+    color: var(--color-main);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.price-note {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 8px;
 }
 
 .schedule-list {
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
     background: #fff;
-    padding: 30px;
+    padding: 35px;
+    border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
@@ -368,6 +475,7 @@ ul {
     margin-bottom: 20px;
     border-bottom: 2px solid var(--color-main);
     padding-bottom: 10px;
+    font-size: 1.3rem;
 }
 
 .schedule-list li {
@@ -378,30 +486,34 @@ ul {
 }
 
 .schedule-list .date {
-    width: 100px;
+    width: 120px;
     font-weight: bold;
 }
 
 .schedule-list .event {
     padding: 4px 12px;
     border-radius: 4px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
 }
 
 .status-normal .event { background-color: rgba(11, 66, 42, 0.1); color: var(--color-main); }
 .status-closed .event { background-color: rgba(178, 34, 34, 0.1); color: var(--color-accent); }
 .status-event .event  { background-color: rgba(255, 193, 7, 0.2); color: #B8860B; }
 
-/* ACCESS */
+/* =========================================
+   ACCESS
+========================================= */
 .map-wrapper {
     margin-top: 30px;
 }
 
-/* INSTRUCTOR */
+/* =========================================
+   INSTRUCTOR
+========================================= */
 .instructor-card {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 35px;
     background: #fff;
     padding: 40px;
     border-radius: 8px;
@@ -422,20 +534,23 @@ ul {
 }
 
 .instructor-profile h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 10px;
 }
+
 .instructor-profile h3 small {
     font-family: var(--font-en);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #666;
     margin-left: 10px;
 }
+
 .instructor-profile .history {
     color: var(--color-main);
     font-weight: bold;
     margin-bottom: 15px;
 }
+
 .instructor-profile .comment {
     background: var(--color-light);
     padding: 20px;
@@ -453,7 +568,7 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 12px 40px;
+    padding: 14px 45px;
     background-color: var(--color-sub);
     color: #fff;
     border: 1px solid var(--color-gold);
@@ -464,13 +579,13 @@ ul {
 
 .btn-interview .en {
     font-family: var(--font-en);
-    font-size: 0.95rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--color-gold);
 }
 
 .btn-interview .ja {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     color: #bbb;
     margin-top: 2px;
 }
@@ -486,149 +601,145 @@ ul {
 }
 
 /* =========================================
-   INTERVIEW ページ用スタイル
+   FAQ (よくあるご質問)
 ========================================= */
-.article-page {
-    margin-top: var(--header-height);
-    padding: 60px 20px 100px;
-    background-color: #FAFAFA;
-}
-
-.interview-container {
-    max-width: 800px;
+.faq-list {
+    max-width: 750px;
     margin: 0 auto;
-    background: #FFFFFF;
-    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: #fff;
     border-radius: 8px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.04);
 }
 
-.interview-header {
-    border-bottom: 2px solid var(--color-main);
-    padding-bottom: 30px;
-    margin-bottom: 40px;
+.faq-q {
+    font-weight: bold;
+    font-size: 1.15rem;
+    color: var(--color-sub);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 12px;
 }
 
-.interview-subtitle {
+.q-icon {
+    background: var(--color-main);
+    color: #fff;
     font-family: var(--font-en);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--color-main);
-    letter-spacing: 0.15em;
-    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
-.interview-title {
-    font-size: 1.8rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-
-.interview-lead {
-    font-size: 1.05rem;
-    color: #555;
+.faq-a {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #444;
     line-height: 1.8;
 }
 
-.interview-body {
+.a-icon {
+    background: var(--color-gold);
+    color: #fff;
+    font-family: var(--font-en);
+    font-weight: bold;
     font-size: 1rem;
-    line-height: 1.9;
-}
-
-.interview-block {
-    margin-bottom: 40px;
-}
-
-.interview-block .question {
-    font-size: 1.25rem;
-    color: var(--color-main);
-    background-color: rgba(11, 66, 42, 0.05);
-    padding: 15px 20px;
-    border-left: 4px solid var(--color-main);
-    border-radius: 0 4px 4px 0;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.interview-block .answer p {
-    margin-bottom: 15px;
-}
-
-.interview-block .answer .speaker {
-    font-weight: bold;
-    color: var(--color-sub);
-    margin-bottom: 5px;
-}
-
-.highlight-quote {
-    font-size: 1.2rem;
-    font-weight: bold;
-    text-align: center;
-    color: var(--color-main);
-    margin: 30px 0;
-    padding: 20px;
-    background-color: #F4F7F5;
-    border-top: 1px solid var(--color-main);
-    border-bottom: 1px solid var(--color-main);
-}
-
-.interview-image {
-    margin: 40px 0;
-    text-align: center;
-}
-
-.interview-image img {
-    width: 100%;
-    max-height: 450px;
-    object-fit: cover;
-    border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.editor-note {
-    background-color: var(--color-light);
-    padding: 30px;
-    border-radius: 6px;
-    margin-top: 50px;
-    border: 1px solid #EAEAEA;
-}
-
-.editor-title {
-    font-size: 1rem;
-    font-weight: bold;
-    color: var(--color-sub);
-    margin-bottom: 10px;
-    display: inline-block;
-    border-bottom: 2px solid var(--color-gold);
-}
-
-.interview-footer-action {
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid #EEE;
-}
-
-.back-to-home {
-    margin-top: 20px;
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 /* =========================================
-   共通ボタン
+   CONTACT (お問い合わせエリア強化)
 ========================================= */
-.btn-primary {
-    display: inline-block;
-    background-color: var(--color-main);
+.contact-section {
+    background: linear-gradient(135deg, #0B422A 0%, #052417 100%);
     color: #fff;
-    padding: 20px 50px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(11, 66, 42, 0.3);
+    padding: 90px 0;
 }
 
-.btn-primary:hover {
-    background-color: #083321;
+.contact-box {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-badge {
+    display: inline-block;
+    background: var(--color-gold);
+    color: #fff;
+    font-family: var(--font-en);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.contact-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.contact-desc {
+    font-size: 1.1rem;
+    color: #E0EAE5;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.btn-cta {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-gold);
+    color: #fff;
+    padding: 20px 60px;
+    border-radius: 50px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-cta:hover {
+    background: #B38E46;
+    transform: translateY(-2px);
+}
+
+.btn-cta .main-text {
+    font-size: 1.35rem;
+    font-weight: bold;
+}
+
+.btn-cta .sub-text {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin-top: 3px;
+}
+
+.contact-note {
+    font-size: 0.85rem;
+    color: #B0C4DE;
+    margin-top: 20px;
 }
 
 .btn-secondary {
@@ -696,9 +807,17 @@ ul {
 }
 
 /* =========================================
-   レスポンシブ (スマホ対応)
+   レスポンシブ (スマホ表示)
 ========================================= */
 @media screen and (max-width: 768px) {
+    body {
+        font-size: 1rem; /* スマホでは標準サイズに戻す */
+    }
+
+    .section-title .en {
+        font-size: 1.8rem;
+    }
+
     .hero {
         height: auto;
         padding: 10px;
@@ -732,17 +851,17 @@ ul {
         padding: 60px 0;
     }
 
-    .interview-container {
-        padding: 30px 20px;
-    }
-
-    .interview-title {
+    .contact-title {
         font-size: 1.4rem;
     }
 
-    .interview-block .question {
-        font-size: 1.1rem;
-        padding: 12px 15px;
+    .btn-cta {
+        padding: 16px 30px;
+        width: 100%;
+    }
+
+    .btn-cta .main-text {
+        font-size: 1.15rem;
     }
 
     .instructor-card {
