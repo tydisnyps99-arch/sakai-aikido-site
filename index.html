@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>堺合気道教室 | SAKAI AIKIDO</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,7 +28,8 @@
     <nav class="nav-menu" id="js-nav">
         <ul>
             <li><a href="#"><span>HOME</span>ホーム</a></li>
-            <li><a href="#about"><span>ABOUT</span>教室紹介</a></li>
+            <li><a href="#beginner"><span>BEGINNER</span>初めての方へ</a></li>
+            <li><a href="#about"><span>ABOUT</span>合気道とは</a></li>
             <li><a href="#features"><span>FEATURES</span>特徴</a></li>
             <li><a href="#schedule"><span>SCHEDULE</span>稽古日時・月謝</a></li>
             <li><a href="#access"><span>ACCESS</span>アクセス</a></li>
@@ -41,18 +41,22 @@
     <div class="nav-overlay" id="js-overlay"></div>
 
     <main>
-        <!-- トップスライダー（ズームなし設定） -->
+        <!-- トップスライダー (シンプルなimgタグに変更・ファイル名・リンク先修正) -->
         <section id="hero" class="hero">
             <div class="slider" id="js-slider">
+                <!-- ① 無料体験受付中 -->
                 <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide active">
-                    <img src="images/hero1.jpg" alt="子どもの稽古 無料体験受付中">
+                    <img src="images/hero1.jpg" alt="無料体験受付中">
                 </a>
-                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide">
-                    <img src="images/hero2.jpg" alt="大人の稽古 入会受付中">
-                </a>
+                <!-- ② Instagram順次更新中 -->
                 <a href="https://www.instagram.com/toshi_1057/" target="_blank" rel="noopener" class="slide">
-                    <img src="images/hero4.jpg" alt="Instagram更新中">
+                    <img src="images/hero4.jpg" alt="Instagram順次更新中">
                 </a>
+                <!-- ③ 初めての方へ -->
+                <a href="#beginner" class="slide">
+                    <img src="images/hero2.jpg" alt="初めての方へ">
+                </a>
+                <!-- ④ 指導員紹介 (インタビュー記事ではなく、HOME内の指導員紹介へ) -->
                 <a href="#instructor" class="slide">
                     <img src="images/hero3.jpg" alt="指導員紹介">
                 </a>
@@ -71,33 +75,63 @@
             </div>
         </section>
 
-        <!-- 教室紹介 -->
+        <!-- 初めての方へ -->
+        <section id="beginner" class="section bg-light fade-in-up">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="en">FOR BEGINNERS</span>
+                    <span class="ja">初めての方へ</span>
+                </h2>
+                <div class="beginner-intro text-center">
+                    <p>初めての方でも<span class="u-inline-block">安心してご参加いただけます。</span></p>
+                </div>
+                <div class="beginner-grid">
+                    <div class="beginner-card">
+                        <h3>無料体験</h3>
+                        <p>無料で稽古を体験できます。<span class="u-inline-block">道場の雰囲気を</span><span class="u-inline-block">直接感じてみてください。</span></p>
+                    </div>
+                    <div class="beginner-card">
+                        <h3>服装</h3>
+                        <p>初めは道着がなくても大丈夫です。<span class="u-inline-block">ジャージなど、</span><span class="u-inline-block">動きやすい服装でご参加ください。</span></p>
+                    </div>
+                    <div class="beginner-card">
+                        <h3>見学</h3>
+                        <p>見学のみでも歓迎しています。<span class="u-inline-block">稽古の様子を</span><span class="u-inline-block">お気軽にご覧ください。</span></p>
+                    </div>
+                    <div class="beginner-card">
+                        <h3>不安なことは</h3>
+                        <p>よくある疑問については、<a href="#faq" class="text-link">Q&A（よくあるご質問）</a>を<span class="u-inline-block">ご覧ください。</span></p>
+                    </div>
+                </div>
+                <div class="contact-btn-wrapper text-center" style="margin-top: 40px;">
+                    <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" class="btn-cta" target="_blank" rel="noopener">
+                        <span class="main-text">無料体験を申し込む</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 教室紹介（合気道とは） -->
         <section id="about" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">ABOUT</span>
-                    <span class="ja">教室紹介</span>
+                    <span class="ja">合気道とは</span>
                 </h2>
-                
+                <div class="content-box">
+                    <h3>「勝ち負けのない武道」</h3>
+                    <p>合気道は、相手と力で争うのではなく、相手の力を利用して制する日本伝統の現代武道です。<span class="u-inline-block">試合（競技）を行わないため、</span><span class="u-inline-block">他人と優劣を競い合う</span>プレッシャーがなく、<span class="u-inline-block">自分自身のペースで</span>体幹や礼儀作法を身につけることができます。</p>
+                    <p>無理な筋力や格闘のセンスに頼らないため、小中学生はもちろん、女性や70代の方までどなたでも安全に始められます。<span class="u-inline-block">日々の運動不足解消や</span>ストレス発散、<span class="u-inline-block">しなやかな身のこなしと</span>心のゆとりを育む習い事として最適です。</p>
+                </div>
                 <div class="content-box">
                     <h3>堺合気道教室について</h3>
                     <p>堺合気道教室は、大阪府堺市西区の「船尾会館」を中心に活動を行っている合気道道場です。<span class="u-inline-block">小学生から大人・シニア世代まで、</span><span class="u-inline-block">幅広い年代の会員が</span>和気あいあいと稽古に励んでいます。</p>
-                    <p class="venue-info">
-                        <strong>【主な稽古場所】</strong><br>
-                        <strong>船尾会館</strong>（大阪府堺市西区浜寺船尾町西3丁305）
-                    </p>
-                </div>
-
-                <div class="content-box">
-                    <h3>「勝ち負けのない武道」合気道とは</h3>
-                    <p>合気道は、相手と力で争うのではなく、相手の力を利用して制する日本伝統の現代武道です。<span class="u-inline-block">試合（競技）を行わないため、</span><span class="u-inline-block">他人と優劣を競い合う</span>プレッシャーがなく、<span class="u-inline-block">自分自身のペースで</span>体幹や礼儀作法を身につけることができます。</p>
-                    <p>無理な筋力や格闘のセンスに頼らないため、小中学生はもちろん、女性や70代の方までどなたでも安全に始められます。<span class="u-inline-block">日々の運動不足解消や</span>ストレス発散、<span class="u-inline-block">しなやかな身のこなしと</span>心のゆとりを育む習い事として最適です。</p>
                 </div>
             </div>
         </section>
 
         <!-- 特徴 -->
-        <section id="features" class="section fade-in-up">
+        <section id="features" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">FEATURES</span>
@@ -124,8 +158,20 @@
                     <h3>稽古日時</h3>
                     <p class="schedule-days"><strong>毎週 水曜日・土曜日</strong></p>
                     <ul class="time-list">
-                        <li><strong>18:00〜19:30</strong> 子どもの部（小・中学生）</li>
-                        <li><strong>19:30〜21:00</strong> 一般の部（高校生以上・大人）</li>
+                        <li>
+                            <span class="time">18:00〜19:30</span>
+                            <div class="time-detail">
+                                <span class="class-name">子どもの部</span>
+                                <span class="target">対象 小学生〜</span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="time">19:30〜21:00</span>
+                            <div class="time-detail">
+                                <span class="class-name">一般の部</span>
+                                <span class="target">対象 中学生〜</span>
+                            </div>
+                        </li>
                     </ul>
 
                     <div class="price-box">
@@ -144,24 +190,14 @@
                                 <span class="price-value">18,000円</span>
                             </li>
                         </ul>
-                        <p class="price-note">※ご家族で4人以上の場合はさらにお得になります。詳細はお問い合わせください。</p>
+                        <p class="price-note">※ご家族で4人以上の場合はさらにお得になります。<span class="u-inline-block">詳細はお問い合わせください。</span></p>
                     </div>
-                </div>
-
-                <div class="schedule-list">
-                    <h3>今後の稽古予定</h3>
-                    <ul>
-                        <li class="status-normal"><span class="date">8/6（水）</span><span class="event">通常稽古</span></li>
-                        <li class="status-normal"><span class="date">8/9（土）</span><span class="event">通常稽古</span></li>
-                        <li class="status-closed"><span class="date">8/13（水）</span><span class="event">休み（お盆休み）</span></li>
-                        <li class="status-event"><span class="date">8/24（日）</span><span class="event">特別演武会</span></li>
-                    </ul>
                 </div>
             </div>
         </section>
 
-        <!-- アクセス（箇条書き・路線名追加） -->
-        <section id="access" class="section fade-in-up">
+        <!-- アクセス -->
+        <section id="access" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">ACCESS</span>
@@ -172,28 +208,24 @@
                         <strong>船尾会館</strong><br>
                         〒592-8342 大阪府堺市西区浜寺船尾町西3丁305
                     </p>
-                    
                     <div class="access-list-block">
                         <strong>【最寄り駅】</strong>
                         <ul>
-                            <li>阪堺線「船尾駅」より徒歩約10分</li>
-                            <li>南海本線「諏訪ノ森駅」より徒歩約14分</li>
-                            <li>JR阪和線「津久野駅」より徒歩約23分</li>
+                            <li>阪堺線「船尾駅」より 徒歩 約10分</li>
+                            <li>南海本線「諏訪ノ森駅」より 徒歩 約14分</li>
+                            <li>JR阪和線「津久野駅」より 徒歩 約23分</li>
                         </ul>
                     </div>
-
                     <div class="access-list-block">
                         <strong>【周辺学校】</strong>
                         <ul>
-                            <li>浜寺中学校より徒歩約5分</li>
-                            <li>浜寺東小学校より徒歩約9分</li>
-                            <li>浜寺小学校より徒歩約10分</li>
+                            <li>浜寺中学校より 徒歩 約5分</li>
+                            <li>浜寺東小学校より 徒歩 約9分</li>
+                            <li>浜寺小学校より 徒歩 約10分</li>
                         </ul>
                     </div>
-
                     <p class="parking-note">※駐車スペースはありますが、台数に限りがあります。</p>
                 </div>
-                <!-- Google Map埋め込み -->
                 <div class="map-wrapper">
                     <iframe src="https://maps.google.co.jp/maps?output=embed&q=大阪府堺市西区浜寺船尾町西3丁305" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
@@ -201,7 +233,7 @@
         </section>
 
         <!-- 指導員紹介 -->
-        <section id="instructor" class="section bg-light fade-in-up">
+        <section id="instructor" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">INSTRUCTOR</span>
@@ -212,8 +244,7 @@
                     <div class="instructor-profile">
                         <h3>前田 高司 <small>Maeda Takashi</small></h3>
                         <p class="history">合気道〇段 / 指導歴〇年</p>
-                        <p class="comment">「誰もが安心して稽古できる道場を目指しています。一緒に合気道の奥深さを楽しみましょう。」</p>
-                        
+                        <p class="comment">「誰もが安心して稽古できる道場を目指しています。<span class="u-inline-block">一緒に合気道の奥深さを楽しみましょう。」</span></p>
                         <div class="instructor-btn-wrapper">
                             <a href="interview.html" class="btn-interview">
                                 <span class="en">INTERVIEW</span>
@@ -226,7 +257,7 @@
         </section>
 
         <!-- FAQ -->
-        <section id="faq" class="section fade-in-up">
+        <section id="faq" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">FAQ</span>
@@ -236,52 +267,52 @@
                     <div class="faq-item">
                         <button class="faq-q js-faq-toggle" aria-expanded="false">
                             <span class="q-icon">Q</span>
-                            <span class="q-text">初めてでも参加できますか？運動や柔軟性に不安があります。</span>
+                            <span class="q-text">初心者でも大丈夫ですか？</span>
                             <span class="faq-arrow">▼</span>
                         </button>
                         <div class="faq-a">
                             <div class="faq-a-inner">
                                 <span class="a-icon">A</span>
-                                <p>もちろんです。合気道は無理な筋力や柔軟性を必要とせず、相手の力を利用する武道です。一人ひとりの体力やペースに合わせて丁寧に指導いたしますのでご安心ください。</p>
+                                <p>もちろんです。初心者の方も安心して参加できます。</p>
                             </div>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-q js-faq-toggle" aria-expanded="false">
                             <span class="q-icon">Q</span>
-                            <span class="q-text">体験稽古の際の服装や持ち物は何が必要ですか？</span>
+                            <span class="q-text">体験はどんな服装ですか？</span>
                             <span class="faq-arrow">▼</span>
                         </button>
                         <div class="faq-a">
                             <div class="faq-a-inner">
                                 <span class="a-icon">A</span>
-                                <p>動きやすい服装（ジャージやTシャツ・長ズボン等）とお飲み物、汗拭きタオルをお持ちください。道着をお持ちでない方も気軽に体験いただけます。</p>
+                                <p>動きやすい服装でご参加ください。</p>
                             </div>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-q js-faq-toggle" aria-expanded="false">
                             <span class="q-icon">Q</span>
-                            <span class="q-text">親子や兄弟で一緒に通うことはできますか？</span>
+                            <span class="q-text">保護者は見学できますか？</span>
                             <span class="faq-arrow">▼</span>
                         </button>
                         <div class="faq-a">
                             <div class="faq-a-inner">
                                 <span class="a-icon">A</span>
-                                <p>はい、大歓迎です！当道場では多くのご家族が一緒に稽古に励んでいます。ご家族でお通いしやすい月謝設定もございます。</p>
+                                <p>もちろん可能です。</p>
                             </div>
                         </div>
                     </div>
                     <div class="faq-item">
                         <button class="faq-q js-faq-toggle" aria-expanded="false">
                             <span class="q-icon">Q</span>
-                            <span class="q-text">見学や無料体験は事前に予約が必要ですか？</span>
+                            <span class="q-text">子どもの部・一般の部は必ず分かれていますか？</span>
                             <span class="faq-arrow">▼</span>
                         </button>
                         <div class="faq-a">
                             <div class="faq-a-inner">
                                 <span class="a-icon">A</span>
-                                <p>スムーズなご案内のため、Googleフォームより事前にご予約をお願いしております。お気軽にお申し込みください。</p>
+                                <p>基本的には子どもの部・一般の部に分かれて稽古を行っています。ただし、年齢や経験などに応じて、子どもが一般の部に参加したり、大人が子どもの部に参加することもできます。一人ひとりに合わせて柔軟に対応しています。</p>
                             </div>
                         </div>
                     </div>
@@ -289,19 +320,7 @@
             </div>
         </section>
 
-        <!-- Instagram -->
-        <section id="instagram" class="section bg-light fade-in-up">
-            <div class="container text-center">
-                <h2 class="section-title">
-                    <span class="en">INSTAGRAM</span>
-                    <span class="ja">Instagram</span>
-                </h2>
-                <p>稽古の様子や最新情報を順次更新中！</p>
-                <a href="https://www.instagram.com/toshi_1057/" class="btn-secondary" target="_blank" rel="noopener">Instagramを見る</a>
-            </div>
-        </section>
-
-        <!-- 体験申し込み（ボタン色を赤に変更して目立たせる） -->
+        <!-- CTA（最下部） -->
         <section id="contact" class="section contact-section fade-in-up">
             <div class="container">
                 <div class="contact-box text-center">
@@ -311,35 +330,32 @@
                         <span class="u-inline-block">無料体験へお越しください！</span>
                     </h2>
                     <p class="contact-desc">
-                        「武道の雰囲気を味わってみたい」「子どもの習い事を探している」「運動不足を解消したい」<br>
-                        堺合気道教室では、随時見学・無料体験を受け付けております。初心者の方も大歓迎です！
+                        「武道の雰囲気を味わってみたい」<span class="u-inline-block">「子どもの習い事を探している」</span><span class="u-inline-block">「運動不足を解消したい」</span><br>
+                        堺合気道教室では、随時見学・無料体験を受け付けております。<span class="u-inline-block">初心者の方も大歓迎です！</span>
                     </p>
                     <div class="contact-btn-wrapper">
                         <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" class="btn-cta" target="_blank" rel="noopener">
-                            <span class="main-text">無料体験・見学を申し込む</span>
-                            <span class="sub-text">（Googleフォームが開きます）</span>
+                            <span class="main-text">無料体験を申し込む</span>
                         </a>
                     </div>
-                    <p class="contact-note">※お申し込み確認後、指導員より日程調整等のご連絡を差し上げます。</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- フッター -->
     <footer class="footer">
         <div class="container">
             <div class="footer-inner">
                 <div class="footer-logo">堺合気道教室</div>
                 <ul class="footer-links">
-                    <li><a href="#about">教室紹介</a></li>
+                    <li><a href="#about">合気道とは</a></li>
                     <li><a href="#schedule">稽古日時</a></li>
                     <li><a href="#access">アクセス</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="https://www.instagram.com/toshi_1057/" target="_blank" rel="noopener">Instagram</a></li>
                 </ul>
             </div>
-            <p class="copyright">&copy; 2024 SAKAI AIKIDO. All rights reserved.</p>
+            <p class="copyright">&copy; SAKAI AIKIDO. All rights reserved.</p>
         </div>
     </footer>
 
