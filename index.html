@@ -24,12 +24,12 @@
         </button>
     </header>
 
-    <!-- スライドメニュー -->
+    <!-- スライドメニュー（「初めての方へ」と「合気道とは」の順番を入れ替え） -->
     <nav class="nav-menu" id="js-nav">
         <ul>
             <li><a href="#"><span>HOME</span>ホーム</a></li>
-            <li><a href="#beginner"><span>BEGINNER</span>初めての方へ</a></li>
-            <li><a href="#about"><span>ABOUT</span>合気道とは</a></li>
+            <li><a href="index.html#about"><span>ABOUT</span>合気道とは（教室紹介）</a></li>
+            <li><a href="index.html#beginner"><span>BEGINNER</span>初めての方へ</a></li>
             <li><a href="#features"><span>FEATURES</span>特徴</a></li>
             <li><a href="#schedule"><span>SCHEDULE</span>稽古日時・月謝</a></li>
             <li><a href="#access"><span>ACCESS</span>アクセス</a></li>
@@ -40,8 +40,9 @@
     </nav>
     <div class="nav-overlay" id="js-overlay"></div>
 
+
     <main>
-        <!-- トップスライダー (シンプルなimgタグに変更・ファイル名・リンク先修正) -->
+        <!-- トップスライダー -->
         <section id="hero" class="hero">
             <div class="slider" id="js-slider">
                 <!-- ① 無料体験受付中 -->
@@ -56,7 +57,7 @@
                 <a href="#beginner" class="slide">
                     <img src="images/hero2.jpg" alt="初めての方へ">
                 </a>
-                <!-- ④ 指導員紹介 (インタビュー記事ではなく、HOME内の指導員紹介へ) -->
+                <!-- ④ 指導員紹介 -->
                 <a href="#instructor" class="slide">
                     <img src="images/hero3.jpg" alt="指導員紹介">
                 </a>
@@ -75,7 +76,27 @@
             </div>
         </section>
 
-        <!-- 初めての方へ -->
+
+        <!-- 1. 教室紹介（合気道とは） -->
+        <section id="about" class="section fade-in-up">
+            <div class="container">
+                <h2 class="section-title">
+                    <span class="en">ABOUT</span>
+                    <span class="ja">合気道とは</span>
+                </h2>
+                <div class="content-box">
+                    <h3>「勝ち負けのない武道」</h3>
+                    <p>合気道は、相手と力で争うのではなく、相手の力を利用して制する日本伝統の現代武道です。<span class="u-inline-block">試合（競技）を行わないため、</span><span class="u-inline-block">他人と優劣を競い合う</span>プレッシャーがなく、<span class="u-inline-block">自分自身のペースで</span>体幹や礼儀作法を身につけることができます。</p>
+                    <p>無理な筋力や格闘のセンスに頼らないため、小中学生はもちろん、女性や70代の方までどなたでも安全に始められます。<span class="u-inline-block">日々の運動不足解消や</span>ストレス発散、<span class="u-inline-block">しなやかな身のこなしと</span>心のゆとりを育む習い事として最適です。</p>
+                </div>
+                <div class="content-box">
+                    <h3>堺合気道教室について</h3>
+                    <p>堺合気道教室は、大阪府堺市西区の「船尾会館」を中心に活動を行っている合気道道場です。<span class="u-inline-block">小学生から大人・シニア世代まで、</span><span class="u-inline-block">幅広い年代の会員が</span>和気あいあいと稽古に励んでいます。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. 初めての方へ -->
         <section id="beginner" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -111,26 +132,8 @@
             </div>
         </section>
 
-        <!-- 教室紹介（合気道とは） -->
-        <section id="about" class="section fade-in-up">
-            <div class="container">
-                <h2 class="section-title">
-                    <span class="en">ABOUT</span>
-                    <span class="ja">合気道とは</span>
-                </h2>
-                <div class="content-box">
-                    <h3>「勝ち負けのない武道」</h3>
-                    <p>合気道は、相手と力で争うのではなく、相手の力を利用して制する日本伝統の現代武道です。<span class="u-inline-block">試合（競技）を行わないため、</span><span class="u-inline-block">他人と優劣を競い合う</span>プレッシャーがなく、<span class="u-inline-block">自分自身のペースで</span>体幹や礼儀作法を身につけることができます。</p>
-                    <p>無理な筋力や格闘のセンスに頼らないため、小中学生はもちろん、女性や70代の方までどなたでも安全に始められます。<span class="u-inline-block">日々の運動不足解消や</span>ストレス発散、<span class="u-inline-block">しなやかな身のこなしと</span>心のゆとりを育む習い事として最適です。</p>
-                </div>
-                <div class="content-box">
-                    <h3>堺合気道教室について</h3>
-                    <p>堺合気道教室は、大阪府堺市西区の「船尾会館」を中心に活動を行っている合気道道場です。<span class="u-inline-block">小学生から大人・シニア世代まで、</span><span class="u-inline-block">幅広い年代の会員が</span>和気あいあいと稽古に励んでいます。</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- 特徴 -->
+        <!-- 3. 特徴 -->
         <section id="features" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -146,7 +149,7 @@
             </div>
         </section>
 
-        <!-- 稽古日時・月謝 -->
+        <!-- 4. 稽古日時・月謝 -->
         <section id="schedule" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -196,7 +199,7 @@
             </div>
         </section>
 
-        <!-- アクセス -->
+        <!-- 5. アクセス -->
         <section id="access" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -232,7 +235,7 @@
             </div>
         </section>
 
-        <!-- 指導員紹介 -->
+        <!-- 6. 指導員紹介 -->
         <section id="instructor" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -256,7 +259,7 @@
             </div>
         </section>
 
-        <!-- FAQ -->
+        <!-- 7. FAQ -->
         <section id="faq" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
@@ -320,7 +323,7 @@
             </div>
         </section>
 
-        <!-- CTA（最下部） -->
+        <!-- 8. CTA（最下部） -->
         <section id="contact" class="section contact-section fade-in-up">
             <div class="container">
                 <div class="contact-box text-center">
@@ -348,6 +351,7 @@
             <div class="footer-inner">
                 <div class="footer-logo">堺合気道教室</div>
                 <ul class="footer-links">
+                    <li><a href="#beginner">初めての方へ</a></li>
                     <li><a href="#about">合気道とは</a></li>
                     <li><a href="#schedule">稽古日時</a></li>
                     <li><a href="#access">アクセス</a></li>

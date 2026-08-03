@@ -22,78 +22,102 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- トップスライダー (4枚構成・7.5秒間隔) ---
+    // -------------------------
+    // 2. スライダー機能（横スライド＋スワイプ対応）
+    // -------------------------
+    const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
     const indicators = document.querySelectorAll('.indicator');
     const prevBtn = document.getElementById('js-prev');
     const nextBtn = document.getElementById('js-next');
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-    let slideInterval;
+    
+    if (slider && slides.length > 0) {
+        // 横スライド用のラッパー（トラック）を自動生成
+        let track = document.createElement('div');
+        track.classList.add('slider-track');
+        slides.forEach(slide => track.appendChild(slide));
+        slider.appendChild(track);
 
-    function goToSlide(index) {
-        slides[currentSlide].classList.remove('active');
-        indicators[currentSlide].classList.remove('active');
-        currentSlide = (index + totalSlides) % totalSlides;
-        slides[currentSlide].classList.add('active');
-        indicators[currentSlide].classList.add('active');
-    }
+        let currentIndex = 0;
+        let slideInterval;
+        const intervalTime = 5000; // 5秒ごとにスライド
 
-    function nextSlide() {
-        goToSlide(currentSlide + 1);
-    }
+        function updateSlider() {
+            // 横に移動させる
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            indicators.forEach(ind => ind.classList.remove('active'));
+            if(indicators[currentIndex]) {
+                indicators[currentIndex].classList.add('active');
+            }
+        }
 
-    function prevSlide() {
-        goToSlide(currentSlide - 1);
-    }
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateSlider();
+        }
 
-    function startSlider() {
-        // 約7〜8秒表示 (7500ms)
-        slideInterval = setInterval(nextSlide, 7500);
-    }
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
 
-    function resetSlider() {
-        clearInterval(slideInterval);
-        startSlider();
-    }
+        function startSlider() {
+            slideInterval = setInterval(nextSlide, intervalTime);
+        }
 
-    if (slides.length > 0) {
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetSlider();
-        });
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetSlider();
-        });
+        function resetSlider() {
+            clearInterval(slideInterval);
+            startSlider();
+        }
+
+        if(nextBtn && prevBtn) {
+            nextBtn.addEventListener('click', () => { nextSlide(); resetSlider(); });
+            prevBtn.addEventListener('click', () => { prevSlide(); resetSlider(); });
+        }
+
         indicators.forEach((indicator, index) => {
             indicator.addEventListener('click', () => {
-                goToSlide(index);
+                currentIndex = index;
+                updateSlider();
                 resetSlider();
             });
         });
+
+        // ▼ スマホでのスワイプ（タッチ）操作対応
+        let startX = 0;
+        let isDragging = false;
+
+        track.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            clearInterval(slideInterval); // 触っている間は自動再生ストップ
+        });
+
+        track.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+        });
+
+        track.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            let endX = e.changedTouches[0].clientX;
+            let diff = startX - endX;
+
+            // 50px以上指を動かしたらスライドを切り替え
+            if (diff > 50) {
+                nextSlide();
+            } else if (diff < -50) {
+                prevSlide();
+            } else {
+                updateSlider();
+            }
+            resetSlider();
+        });
+
+        updateSlider();
         startSlider();
     }
-
-    // --- FAQアコーディオン ---
-    const faqToggles = document.querySelectorAll('.js-faq-toggle');
-    
-    faqToggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
-            const item = this.closest('.faq-item');
-            const answer = item.querySelector('.faq-a');
-            
-            item.classList.toggle('is-open');
-            const isOpen = item.classList.contains('is-open');
-            this.setAttribute('aria-expanded', isOpen);
-
-            if (isOpen) {
-                answer.style.maxHeight = answer.scrollHeight + "px";
-            } else {
-                answer.style.maxHeight = null;
-            }
-        });
-    });
 
     // --- スクロールアニメーション (フェードイン) ---
     const fadeElements = document.querySelectorAll('.fade-in-up');
@@ -115,5 +139,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fadeElements.forEach(el => {
         scrollObserver.observe(el);
+    });
+});
+
+// --- FAQアコーディオン ---
+const faqToggles = document.querySelectorAll('.js-faq-toggle');
+faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        const item = toggle.closest('.faq-item');
+        const answer = item.querySelector('.faq-a');
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+        toggle.setAttribute('aria-expanded', !isExpanded);
+        item.classList.toggle('is-open');
+
+        if (item.classList.contains('is-open')) {
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        } else {
+            answer.style.maxHeight = '0';
+        }
     });
 });
