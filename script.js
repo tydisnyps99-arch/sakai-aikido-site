@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 2. スライダー機能（横スライド＋スワイプ対応）---
+    // --- 2. スライダー機能（自動再生・スワイプ・インジケーター連動）---
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
     const indicators = document.querySelectorAll('.indicator');
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // スマホ用タッチ・スワイプ対応
+        // タッチ・スワイプ操作
         let startX = 0;
         let isDragging = false;
 

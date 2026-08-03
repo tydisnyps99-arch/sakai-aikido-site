@@ -11,18 +11,24 @@
 </head>
 <body>
 
-    <!-- ヘッダー -->
-    <header class="header">
-        <div class="header-logo">
-            <a href="#">
+<!-- ヘッダー -->
+<header class="header">
+    <!-- 左側：ロゴ画像 ＋ テキスト（2行） -->
+    <div class="header-logo">
+        <a href="#">
+            <img src="images/logo.jpg" alt="堺合気道教室" class="logo-mark">
+            <div class="logo-text">
                 <span class="logo-ja">堺合気道教室</span>
                 <span class="logo-en">SAKAI AIKIDO</span>
-            </a>
-        </div>
-        <button class="hamburger" id="js-hamburger" aria-label="メニューを開閉する" aria-expanded="false">
-            <span></span><span></span><span></span>
-        </button>
-    </header>
+            </div>
+        </a>
+    </div>
+
+    <!-- 右側：三本線（ハンバーガーボタン） -->
+    <button class="hamburger" id="js-hamburger" aria-label="メニューを開閉する" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</header>
 
     <!-- スライドメニュー -->
     <nav class="nav-menu" id="js-nav">
@@ -45,9 +51,8 @@
         <section id="hero" class="hero">
             <div class="slider" id="js-slider">
                 <!-- ① 無料体験受付中 -->
-                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide active">
+                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide">
                     <picture>
-                        <!-- スマホ専用画像がある場合は srcset に指定可能（未指定の場合は fallback 画像を使用） -->
                         <source media="(max-width: 768px)" srcset="images/hero1.jpg">
                         <img src="images/hero1.jpg" alt="無料体験受付中">
                     </picture>
