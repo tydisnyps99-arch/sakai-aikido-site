@@ -25,7 +25,7 @@
         </button>
     </header>
 
-    <!-- スライドメニュー -->
+    <!-- スライドメニュー（トップページへの適切なアンカーリンクに修正） -->
     <nav class="nav-menu" id="js-nav">
         <ul>
             <li><a href="index.html"><span>HOME</span>ホーム</a></li>
@@ -41,10 +41,9 @@
     </nav>
     <div class="nav-overlay" id="js-overlay"></div>
 
-    <!-- mainに style="padding-top: 100px;" を追加し、ヘッダー被りを防止 -->
-    <main class="article-page" style="padding-top: 100px; padding-bottom: 60px; background-color: #FAFAFA;">
+    <main class="article-page">
         <!-- インタビューメインエリア -->
-        <article class="interview-container" style="max-width: 800px; margin: 0 auto; background: #fff; padding: 40px 30px; border-radius: 8px; box-shadow: 0 2px 15px rgba(0,0,0,0.05);">
+        <article class="interview-container">
             <!-- 記事ヘッダー -->
             <header class="interview-header" style="text-align: center; margin-bottom: 40px;">
                 <div class="interview-subtitle" style="font-family: 'Montserrat', sans-serif; color: #C5A059; font-weight: bold; letter-spacing: 0.1em; margin-bottom: 10px;">INSTRUCTOR INTERVIEW</div>
@@ -113,11 +112,11 @@
             </div>
 
             <!-- 下部アクションエリア -->
-            <div class="interview-actions" style="display: flex; flex-direction: column; align-items: center; gap: 20px; margin-top: 50px; border-top: 1px solid #eee; padding-top: 40px;">
-                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" class="btn-cta" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; justify-content: center; background: #B22222; color: #fff; padding: 18px 50px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
-                    無料体験を申し込む
+            <div class="interview-actions">
+                <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" class="btn-cta" target="_blank" rel="noopener">
+                    <span class="main-text">無料体験を申し込む</span>
                 </a>
-                <a href="index.html#instructor" class="btn-back" style="display: inline-block; padding: 12px 35px; color: #111; border: 2px solid #ddd; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;">
+                <a href="index.html#instructor" class="btn-back">
                     指導員紹介へ戻る
                 </a>
             </div>
@@ -137,7 +136,7 @@
                     <li><a href="https://www.instagram.com/toshi_1057/" target="_blank" rel="noopener">Instagram</a></li>
                 </ul>
             </div>
-            <p class="copyright">&copy; 2024 SAKAI AIKIDO. All rights reserved.</p>
+            <p class="copyright">&copy; SAKAI AIKIDO. All rights reserved.</p>
         </div>
     </footer>
 

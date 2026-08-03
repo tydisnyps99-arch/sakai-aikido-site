@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- ハンバーガーメニュー ---
+    // --- 1. ハンバーガーメニュー ---
     const hamburger = document.getElementById('js-hamburger');
     const nav = document.getElementById('js-nav');
     const overlay = document.getElementById('js-overlay');
@@ -14,17 +14,19 @@ document.addEventListener('DOMContentLoaded', () => {
         hamburger.setAttribute('aria-expanded', !isExpanded);
     }
 
-    if(hamburger) {
+    if (hamburger) {
         hamburger.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', toggleMenu);
         navLinks.forEach(link => {
-            link.addEventListener('click', toggleMenu);
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('is-active')) {
+                    toggleMenu();
+                }
+            });
         });
     }
 
-    // -------------------------
-    // 2. スライダー機能（横スライド＋スワイプ対応）
-    // -------------------------
+    // --- 2. スライダー機能（横スライド＋スワイプ対応）---
     const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
     const indicators = document.querySelectorAll('.indicator');
@@ -32,24 +34,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('js-next');
     
     if (slider && slides.length > 0) {
-        // 横スライド用のラッパー（トラック）を自動生成
-        let track = document.createElement('div');
-        track.classList.add('slider-track');
-        slides.forEach(slide => track.appendChild(slide));
-        slider.appendChild(track);
+        let track = slider.querySelector('.slider-track');
+        if (!track) {
+            track = document.createElement('div');
+            track.classList.add('slider-track');
+            slides.forEach(slide => track.appendChild(slide));
+            slider.appendChild(track);
+        }
 
         let currentIndex = 0;
         let slideInterval;
-        const intervalTime = 5000; // 5秒ごとにスライド
+        const intervalTime = 5000;
 
         function updateSlider() {
-            // 横に移動させる
             track.style.transform = `translateX(-${currentIndex * 100}%)`;
             
-            indicators.forEach(ind => ind.classList.remove('active'));
-            if(indicators[currentIndex]) {
-                indicators[currentIndex].classList.add('active');
-            }
+            indicators.forEach((ind, index) => {
+                if (index === currentIndex) {
+                    ind.classList.add('active');
+                } else {
+                    ind.classList.remove('active');
+                }
+            });
         }
 
         function nextSlide() {
@@ -71,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             startSlider();
         }
 
-        if(nextBtn && prevBtn) {
+        if (nextBtn && prevBtn) {
             nextBtn.addEventListener('click', () => { nextSlide(); resetSlider(); });
             prevBtn.addEventListener('click', () => { prevSlide(); resetSlider(); });
         }
@@ -84,19 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // ▼ スマホでのスワイプ（タッチ）操作対応
+        // スマホ用タッチ・スワイプ対応
         let startX = 0;
         let isDragging = false;
 
         track.addEventListener('touchstart', (e) => {
             startX = e.touches[0].clientX;
             isDragging = true;
-            clearInterval(slideInterval); // 触っている間は自動再生ストップ
-        });
-
-        track.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-        });
+            clearInterval(slideInterval);
+        }, { passive: true });
 
         track.addEventListener('touchend', (e) => {
             if (!isDragging) return;
@@ -104,22 +106,40 @@ document.addEventListener('DOMContentLoaded', () => {
             let endX = e.changedTouches[0].clientX;
             let diff = startX - endX;
 
-            // 50px以上指を動かしたらスライドを切り替え
-            if (diff > 50) {
+            if (diff > 40) {
                 nextSlide();
-            } else if (diff < -50) {
+            } else if (diff < -40) {
                 prevSlide();
             } else {
                 updateSlider();
             }
             resetSlider();
-        });
+        }, { passive: true });
 
         updateSlider();
         startSlider();
     }
 
-    // --- スクロールアニメーション (フェードイン) ---
+    // --- 3. FAQアコーディオン ---
+    const faqToggles = document.querySelectorAll('.js-faq-toggle');
+    faqToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const item = toggle.closest('.faq-item');
+            const answer = item.querySelector('.faq-a');
+            const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+            toggle.setAttribute('aria-expanded', !isExpanded);
+            item.classList.toggle('is-open');
+
+            if (item.classList.contains('is-open')) {
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+            } else {
+                answer.style.maxHeight = '0';
+            }
+        });
+    });
+
+    // --- 4. スクロールアニメーション (フェードイン) ---
     const fadeElements = document.querySelectorAll('.fade-in-up');
 
     const observerOptions = {
@@ -139,24 +159,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     fadeElements.forEach(el => {
         scrollObserver.observe(el);
-    });
-});
-
-// --- FAQアコーディオン ---
-const faqToggles = document.querySelectorAll('.js-faq-toggle');
-faqToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-        const item = toggle.closest('.faq-item');
-        const answer = item.querySelector('.faq-a');
-        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-
-        toggle.setAttribute('aria-expanded', !isExpanded);
-        item.classList.toggle('is-open');
-
-        if (item.classList.contains('is-open')) {
-            answer.style.maxHeight = answer.scrollHeight + 'px';
-        } else {
-            answer.style.maxHeight = '0';
-        }
     });
 });

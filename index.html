@@ -24,12 +24,12 @@
         </button>
     </header>
 
-    <!-- スライドメニュー（「初めての方へ」と「合気道とは」の順番を入れ替え） -->
+    <!-- スライドメニュー -->
     <nav class="nav-menu" id="js-nav">
         <ul>
             <li><a href="#"><span>HOME</span>ホーム</a></li>
-            <li><a href="index.html#about"><span>ABOUT</span>合気道とは（教室紹介）</a></li>
-            <li><a href="index.html#beginner"><span>BEGINNER</span>初めての方へ</a></li>
+            <li><a href="#about"><span>ABOUT</span>合気道とは（教室紹介）</a></li>
+            <li><a href="#beginner"><span>BEGINNER</span>初めての方へ</a></li>
             <li><a href="#features"><span>FEATURES</span>特徴</a></li>
             <li><a href="#schedule"><span>SCHEDULE</span>稽古日時・月謝</a></li>
             <li><a href="#access"><span>ACCESS</span>アクセス</a></li>
@@ -40,26 +40,38 @@
     </nav>
     <div class="nav-overlay" id="js-overlay"></div>
 
-
     <main>
         <!-- トップスライダー -->
         <section id="hero" class="hero">
             <div class="slider" id="js-slider">
                 <!-- ① 無料体験受付中 -->
                 <a href="https://forms.gle/1L7aaWqh9uQGa3tB6" target="_blank" rel="noopener" class="slide active">
-                    <img src="images/hero1.jpg" alt="無料体験受付中">
+                    <picture>
+                        <!-- スマホ専用画像がある場合は srcset に指定可能（未指定の場合は fallback 画像を使用） -->
+                        <source media="(max-width: 768px)" srcset="images/hero1.jpg">
+                        <img src="images/hero1.jpg" alt="無料体験受付中">
+                    </picture>
                 </a>
                 <!-- ② Instagram順次更新中 -->
                 <a href="https://www.instagram.com/toshi_1057/" target="_blank" rel="noopener" class="slide">
-                    <img src="images/hero4.jpg" alt="Instagram順次更新中">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/hero4.jpg">
+                        <img src="images/hero4.jpg" alt="Instagram順次更新中">
+                    </picture>
                 </a>
                 <!-- ③ 初めての方へ -->
                 <a href="#beginner" class="slide">
-                    <img src="images/hero2.jpg" alt="初めての方へ">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/hero2.jpg">
+                        <img src="images/hero2.jpg" alt="初めての方へ">
+                    </picture>
                 </a>
                 <!-- ④ 指導員紹介 -->
                 <a href="#instructor" class="slide">
-                    <img src="images/hero3.jpg" alt="指導員紹介">
+                    <picture>
+                        <source media="(max-width: 768px)" srcset="images/hero3.jpg">
+                        <img src="images/hero3.jpg" alt="指導員紹介">
+                    </picture>
                 </a>
             </div>
             
@@ -75,7 +87,6 @@
                 <span class="indicator" data-index="3"></span>
             </div>
         </section>
-
 
         <!-- 1. 教室紹介（合気道とは） -->
         <section id="about" class="section fade-in-up">
@@ -132,9 +143,8 @@
             </div>
         </section>
 
-
         <!-- 3. 特徴 -->
-        <section id="features" class="section bg-light fade-in-up">
+        <section id="features" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">FEATURES</span>
@@ -150,7 +160,7 @@
         </section>
 
         <!-- 4. 稽古日時・月謝 -->
-        <section id="schedule" class="section fade-in-up">
+        <section id="schedule" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">SCHEDULE & PRICE</span>
@@ -200,7 +210,7 @@
         </section>
 
         <!-- 5. アクセス -->
-        <section id="access" class="section bg-light fade-in-up">
+        <section id="access" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">ACCESS</span>
@@ -236,7 +246,7 @@
         </section>
 
         <!-- 6. 指導員紹介 -->
-        <section id="instructor" class="section fade-in-up">
+        <section id="instructor" class="section bg-light fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">INSTRUCTOR</span>
@@ -260,7 +270,7 @@
         </section>
 
         <!-- 7. FAQ -->
-        <section id="faq" class="section bg-light fade-in-up">
+        <section id="faq" class="section fade-in-up">
             <div class="container">
                 <h2 class="section-title">
                     <span class="en">FAQ</span>
