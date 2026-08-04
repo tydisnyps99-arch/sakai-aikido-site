@@ -13,6 +13,7 @@
     
     --font-ja: 'Noto Sans JP', sans-serif;
     --font-en: 'Montserrat', sans-serif;
+    --font-mincho: 'Noto Serif JP', serif;
     
     --header-height: 70px;
 }
@@ -64,6 +65,33 @@ ul { list-style: none; }
 
 /* ABOUTセクションの上の余白削減（約1/3） */
 #about { padding-top: 30px; }
+
+/* =========================================
+   明朝体用（キャッチコピー・理念など）
+========================================= */
+/* HTMLタグに class="text-mincho" と付けるだけで明朝体になります */
+.text-mincho {
+    font-family: var(--font-mincho);
+    font-weight: 500; /* 細めで上品な太さ */
+    letter-spacing: 0.08em; /* 文字の間隔を少し開けて高級感を出す */
+}
+
+/* 理念や印象的な見出し用の装飾 */
+.philosophy-title {
+    font-family: var(--font-mincho);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--color-main);
+    letter-spacing: 0.1em;
+}
+
+/* インタビューページ用（既存のインラインスタイルを上書き） */
+.interview-title,
+.highlight-quote {
+    font-family: var(--font-mincho) !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.05em;
+}
 
 /* =========================================
    3. ヘッダー & ナビ
